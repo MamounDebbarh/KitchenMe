@@ -3,6 +3,15 @@ import { Alert, Image, Text, View } from 'react-native';
 import { SIZES, COLORS } from '../../constants/theme';
 import AppIntroSlider from 'react-native-app-intro-slider';
 
+/* 
+TODO:
+Center vertically	Done 	
+Add png images		
+Write messaging		
+Add animation		
+Add style sheet		
+*/
+
 const slides = [
     {
         id: 1,
