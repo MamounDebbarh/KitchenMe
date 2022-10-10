@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { COLORS, SIZES } from '../../constants/theme';
 export default StyleSheet.create({
     container: {
-        backgroundColor: '#e1e6dd',
+        backgroundColor: COLORS.background,
         flex: 1,   
         alignItems: 'center',
         padding: SIZES.padding,
@@ -33,7 +33,7 @@ export default StyleSheet.create({
         fontSize: SIZES.h4,
         paddingTop: SIZES.padding,
         textAlign: 'center',
-        color: COLORS.title, 
+        color: COLORS.primary, 
     },
     button: {
         padding: SIZES.padding,

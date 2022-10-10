@@ -9,19 +9,19 @@ const slides = [
         id: 1,
         title: 'Welcome to KitchenMe',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/KitchenMeLogo.png'),
+        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/KitchenMeLogoV2.png'),
     },
     {
         id: 2,
         title: 'How does it work?',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/GordonRamsayScream.png'),
+        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/couple-cooks.png'),
     },
     {
         id: 3,
         title: 'Your Kitchen, Your Rules',
         text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/GordonRamsayShocked.png'),
+        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/home&delivery.png'),
     }
 ];
 
