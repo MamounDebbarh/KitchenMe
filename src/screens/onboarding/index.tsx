@@ -2,15 +2,7 @@ import React from 'react';
 import { Alert, Image, Text, View } from 'react-native';
 import { SIZES, COLORS } from '../../constants/theme';
 import AppIntroSlider from 'react-native-app-intro-slider';
-
-/* 
-TODO:
-Center vertically	Done 	
-Add png images		
-Write messaging		
-Add animation		
-Add style sheet		
-*/
+import styles from './styles';
 
 const slides = [
     {
@@ -36,13 +28,9 @@ const slides = [
 const buttonLable = (label:string) => {
     return (
           <View
-          style={{padding: SIZES.padding}}>
+          style={styles.button}>
             <Text 
-            style={{
-                color: COLORS.primary, 
-                fontSize: SIZES.h4,
-                fontWeight: 'bold',
-                }}>
+            style={styles.buttonText}>
                 {label}
             </Text>
           </View>
@@ -55,36 +43,15 @@ function Onboarding() {
         data={slides}
         renderItem={({item}) => (
             <View
-            style={{
-                backgroundColor: '#e1e6dd',
-                flex: 1,   
-                alignItems: 'center',
-                padding: SIZES.padding,
-                paddingTop: SIZES.padding * 2,
-                justifyContent: 'center',
-            }}>
+            style={styles.container}>
                 <Image
                     source={item.image}
-                    style={{
-                        width: SIZES.width - 40,
-                        resizeMode: 'contain',
-                        borderRadius: SIZES.radius,
-                        maxHeight: SIZES.height / 2,
-                    }} />
+                    style={styles.image} />
                 <Text
-                style={{
-                    fontSize: SIZES.h1,
-                    fontWeight: 'bold',
-                    color: COLORS.title,
-                }}>{item.title}</Text>
+                style={styles.title}>{item.title}</Text>
 
                 <Text
-                style={{
-                    fontSize: SIZES.h4,
-                    paddingTop: SIZES.padding,
-                    textAlign: 'center',
-                    color: COLORS.title,
-                }}>{item.text}</Text>
+                style={styles.text}>{item.text}</Text>
             </View>
         )}
         activeDotStyle={{
