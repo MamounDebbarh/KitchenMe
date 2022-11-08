@@ -1,94 +1,67 @@
+import { StackNavigationProp } from '@react-navigation/stack';
 import React from 'react';
-import { Alert, Image, Text, View } from 'react-native';
-import { SIZES, COLORS } from '../../constants/theme';
+import { Image, Text, View } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
+import { COLORS } from '../../constants/theme';
+import { RootStackParamList } from '../../constants/types';
+import styles from './styles';
 
 const slides = [
-    {
-        id: 1,
-        title: 'Welcome to KitchenMe',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/KitchenMeLogo.png'),
-    },
-    {
-        id: 2,
-        title: 'How does it work?',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/GordonRamsayScream.png'),
-    },
-    {
-        id: 3,
-        title: 'Your Kitchen, Your Rules',
-        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rutrum, sapien dictum iaculis mattis, augue odio hendrerit ante, ac varius odio felis sit amet ligula. Vivamus posuere nibh urna, vitae ultrices orci dapibus sit amet.',
-        image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/GordonRamsayShocked.png'),
-    }
+  {
+    id: 1,
+    title: 'Welcome to KitchenMe',
+    text: 'KitchenMe is the first food delivery app featuring cheap healthy meals made by home-cooks, delivered straight to you door. We are here to help you eat healthy and save money.',
+    image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/KitchenMeLogoV2.png'),
+  },
+  {
+    id: 2,
+    title: 'How does it work?',
+    text: 'Browse through our menu and select the meals you want. We will deliver your order to your door in less than 30 minutes.',
+    image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/couple-cooks.png'),
+  },
+  {
+    id: 3,
+    title: 'Your Kitchen, Your Rules',
+    text: 'You rate the food, you rate the cook, you rate the delivery. You are in control of your experience.',
+    image: require('/Users/mamoundebbarh/Documents/Startup/KitchenMe/src/assets/deliveryv2.png'),
+  },
 ];
 
-const buttonLable = (label:string) => {
-    return (
-          <View
-          style={{padding: SIZES.padding}}>
-            <Text 
-            style={{
-                color: COLORS.primary, 
-                fontSize: SIZES.h4,
-                fontWeight: 'bold',
-                }}>
-                {label}
-            </Text>
-          </View>
-    )
-}
+const buttonLable = (label: string) => {
+  return (
+    <View style={styles.button}>
+      <Text style={styles.buttonText}>{label}</Text>
+    </View>
+  );
+};
 
-function Onboarding() {
-    return (
-        <AppIntroSlider
-        data={slides}
-        renderItem={({item}) => (
-            <View
-            style={{
-                backgroundColor: '#e1e6dd',
-                flex: 1,   
-                alignItems: 'center',
-                padding: SIZES.padding,
-                paddingTop: SIZES.padding * 2,
-                justifyContent: 'center',
-            }}>
-                <Image
-                    source={item.image}
-                    style={{
-                        width: SIZES.width - 40,
-                        resizeMode: 'contain',
-                        borderRadius: SIZES.radius,
-                        maxHeight: SIZES.height / 2,
-                    }} />
-                <Text
-                style={{
-                    fontSize: SIZES.h1,
-                    fontWeight: 'bold',
-                    color: COLORS.title,
-                }}>{item.title}</Text>
+function Onboarding({
+  navigation,
+}: {
+  navigation: StackNavigationProp<RootStackParamList, 'Onboarding'>;
+}) {
+  return (
+    <AppIntroSlider
+      data={slides}
+      renderItem={({ item }) => (
+        <View style={styles.container}>
+          <Image source={item.image} style={styles.image} />
+          <Text style={styles.title}>{item.title}</Text>
 
-                <Text
-                style={{
-                    fontSize: SIZES.h4,
-                    paddingTop: SIZES.padding,
-                    textAlign: 'center',
-                    color: COLORS.title,
-                }}>{item.text}</Text>
-            </View>
-        )}
-        activeDotStyle={{
-            backgroundColor: COLORS.primary,
-            width: 30,
-        }}
-        showSkipButton
-        renderNextButton={() => buttonLable('Next')}
-        renderSkipButton={() => buttonLable('Skip')}
-        renderDoneButton={() => buttonLable('Done')}
-        onDone={() => Alert.alert('Done')}
-        />
-    );
+          <Text style={styles.text}>{item.text}</Text>
+        </View>
+      )}
+      activeDotStyle={{
+        backgroundColor: COLORS.accent,
+        width: 30,
+      }}
+      showSkipButton
+      renderNextButton={() => buttonLable('Next')}
+      renderSkipButton={() => buttonLable('Skip')}
+      renderDoneButton={() => buttonLable('Done')}
+      onDone={() => navigation.navigate('Home')}
+    />
+  );
 }
 
 export default Onboarding;
